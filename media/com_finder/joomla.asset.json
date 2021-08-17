@@ -12,6 +12,12 @@
       "version": "9da7b549777ca4899e3e8d8e71ff004e7848b63a"
     },
     {
+      "name": "com_finder.finder",
+      "type": "style",
+      "uri": "com_finder/finder.min.css",
+      "version": "a58af33f3f43796c1350d1b128aadcd53389c158"
+    },
+    {
       "name": "com_finder.filters.es5",
       "type": "script",
       "uri": "com_finder/filters-es5.min.js",
@@ -35,24 +41,6 @@
         "type": "module"
       },
       "version": "db387bd9ba17068d590c9475b667efbec597c6ef"
-    },
-    {
-      "name": "com_finder.finder",
-      "type": "style",
-      "uri": "com_finder/finder.min.css",
-      "version": "a58af33f3f43796c1350d1b128aadcd53389c158"
-    },
-    {
-      "name": "com_finder.finder",
-      "type": "script",
-      "uri": "com_finder/finder.min.js",
-      "dependencies": [
-        "com_finder.finder.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "d518ce6f2265400a9cc37833ca28d60aee433272"
     },
     {
       "name": "com_finder.finder.es5",
@@ -79,6 +67,18 @@
         "defer": true
       },
       "version": "2ad312f3f022664abf2d79c2270704ba4941c412"
+    },
+    {
+      "name": "com_finder.finder",
+      "type": "script",
+      "uri": "com_finder/finder.min.js",
+      "dependencies": [
+        "com_finder.finder.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "d518ce6f2265400a9cc37833ca28d60aee433272"
     },
     {
       "name": "com_finder.finder-edit",
@@ -118,12 +118,6 @@
       "version": "0ca9ccf6be19041ce0bacd250ee8cdc6b4d1c70d"
     },
     {
-      "name": "com_finder.indexer",
-      "type": "style",
-      "uri": "com_finder/indexer.min.css",
-      "version": "06c49573566802156f1a70a330d80adedf247387"
-    },
-    {
       "name": "com_finder.indexer.es5",
       "type": "script",
       "uri": "com_finder/indexer-es5.min.js",
@@ -135,6 +129,12 @@
         "defer": true
       },
       "version": "5ad72d9f2f580a5d4916967fcfbdb0410e666897"
+    },
+    {
+      "name": "com_finder.indexer",
+      "type": "style",
+      "uri": "com_finder/indexer.min.css",
+      "version": "06c49573566802156f1a70a330d80adedf247387"
     },
     {
       "name": "com_finder.maps.es5",

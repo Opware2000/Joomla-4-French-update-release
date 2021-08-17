@@ -61,7 +61,7 @@ final class Version
 	 * @var    string
 	 * @since  3.8.0
 	 */
-	const EXTRA_VERSION = 'rc6';
+	const EXTRA_VERSION = '';
 
 	/**
 	 * Development status.
@@ -69,7 +69,7 @@ final class Version
 	 * @var    string
 	 * @since  3.5
 	 */
-	const DEV_STATUS = 'Release Candidate';
+	const DEV_STATUS = 'Stable';
 
 	/**
 	 * Code name.
@@ -77,7 +77,7 @@ final class Version
 	 * @var    string
 	 * @since  3.5
 	 */
-	const CODENAME = 'Mañana';
+	const CODENAME = 'Furaha';
 
 	/**
 	 * Release date.
@@ -85,7 +85,7 @@ final class Version
 	 * @var    string
 	 * @since  3.5
 	 */
-	const RELDATE = '10-August-2021';
+	const RELDATE = '17-August-2021';
 
 	/**
 	 * Release time.
@@ -93,7 +93,7 @@ final class Version
 	 * @var    string
 	 * @since  3.5
 	 */
-	const RELTIME = '22:51';
+	const RELTIME = '12:30';
 
 	/**
 	 * Release timezone.

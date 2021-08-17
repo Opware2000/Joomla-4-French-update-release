@@ -28,7 +28,8 @@
     var ariaExpanded = button.getAttribute('aria-expanded');
     button.setAttribute('aria-label', ariaLabel === Joomla.Text._('JGLOBAL_EXPAND_CATEGORIES') ? Joomla.Text._('JGLOBAL_COLLAPSE_CATEGORIES') : Joomla.Text._('JGLOBAL_EXPAND_CATEGORIES'));
     button.setAttribute('aria-expanded', ariaExpanded === 'false' ? 'true' : 'false');
-    var target = button.nextElementSibling;
+    var categoryId = button.dataset.categoryId;
+    var target = document.getElementById("category-" + categoryId);
     target.toggleAttribute('hidden');
   };
 

@@ -11251,34 +11251,27 @@ meter {
 }
 /**
 * Back to Top
-* inspired by https://moderncss.dev/pure-css-smooth-scroll-back-to-top/
 */
-.back-to-top-wrapper {
-  position: absolute;
-  top: calc(100vh + 10em);
-  right: 0;
-  bottom: 0;
-  z-index: 1030;
-  width: 3rem;
-  pointer-events: none;
-}
-[dir=rtl] .back-to-top-wrapper {
-  right: unset;
-  left: 0;
-}
-
 .back-to-top-link {
   position: fixed;
-  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
-  position: sticky;
-  top: calc(100vh - 4em);
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 10000;
   padding: 0.5em;
   color: var(--cassiopeia-color-primary, #112855);
   pointer-events: all;
   background-color: var(--white, white);
   border: 1px solid var(--cassiopeia-color-primary, #112855);
   border-radius: 0.25rem;
-  transition: all 200ms ease-in;
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+}
+[dir=rtl] .back-to-top-link {
+  right: unset;
+  left: 1rem;
+}
+.back-to-top-link.visible {
+  opacity: 1;
 }
 .back-to-top-link:hover, .back-to-top-link:focus {
   color: var(--white, white);
@@ -11782,17 +11775,6 @@ iframe {
 .container-topbar a,
 .container-below-top a {
   color: currentColor;
-}
-
-.container-header header .site {
-  background-color: #f9fafb;
-}
-.container-header header .site > .full-width {
-  max-width: none;
-}
-.container-header header .site .container-footer,
-.container-header header .site .system-debug {
-  display: block;
 }
 
 .container-banner {
@@ -12406,10 +12388,37 @@ joomla-tab[view=accordion] .col-md-3 {
   padding: 0.5rem 0;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+body.wrapper-fluid .site-grid {
+  grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 25%)) [main-end] minmax(0, 1fr) [full-end];
+  grid-gap: 0 2em;
+}
+body.wrapper-fluid .grid-child {
+  max-width: none;
+}
+body.wrapper-fluid header > .grid-child,
+body.wrapper-fluid footer > .grid-child {
+  padding-right: 2em;
+  padding-left: 2em;
+}
+body:not(.has-sidebar-left) .site-grid .container-component {
+  grid-column-start: main-start;
+}
+body:not(.has-sidebar-right) .site-grid .container-component {
+  grid-column-end: main-end;
+}
+
+.site-grid {
+  margin-bottom: auto;
+}
+
 @supports (display: grid) {
   .site-grid {
     display: grid;
-    grid-template-areas: ". head head head head ." ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". comp comp comp comp ." ". side-r side-r side-r side-r ." ". side-l side-l side-l side-l ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b ." ". footer footer footer footer ." ". debug debug debug debug .";
+    grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". comp comp comp comp ." ". side-r side-r side-r side-r ." ". side-l side-l side-l side-l ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
     grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 19.875rem)) [main-end] minmax(0, 1fr) [full-end];
     grid-gap: 0 1em;
   }
@@ -12421,37 +12430,15 @@ joomla-tab[view=accordion] .col-md-3 {
        -moz-column-gap: 1em;
             column-gap: 1em;
   }
-  .site-grid:not(.has-sidebar-left) .container-component {
-    grid-column-start: main-start;
-  }
-  .site-grid:not(.has-sidebar-right) .container-component {
-    grid-column-end: main-end;
-  }
   .site-grid > .full-width {
     grid-column: full-start/full-end;
   }
   @media (min-width: 768px) {
     .site-grid {
-      grid-template-areas: ". head head head head ." ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". side-l comp comp side-r ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b ." ". footer footer footer footer .";
+      grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". side-l comp comp side-r ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
     }
   }
-  .site-grid.wrapper-fluid {
-    grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 25%)) [main-end] minmax(0, 1fr) [full-end];
-    grid-gap: 0 2em;
-  }
-  .site-grid.wrapper-fluid .grid-child {
-    max-width: none;
-  }
-  .site-grid.wrapper-fluid header > .grid-child,
-.site-grid.wrapper-fluid footer > .grid-child {
-    padding-right: 2em;
-    padding-left: 2em;
-  }
 }
-.container-header {
-  grid-area: head;
-}
-
 .container-banner {
   grid-area: banner;
 }
@@ -12494,10 +12481,6 @@ joomla-tab[view=accordion] .col-md-3 {
 
 .container-bottom-b {
   grid-area: bot-b;
-}
-
-.container-footer {
-  grid-area: footer;
 }
 
 .mod-finder__search.input-group {

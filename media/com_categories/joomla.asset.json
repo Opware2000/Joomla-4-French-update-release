@@ -6,17 +6,12 @@
   "license": "GPL-2.0-or-later",
   "assets": [
     {
-      "name": "com_categories.shared-categories-accordion.es5",
-      "type": "script",
-      "uri": "com_categories/shared-categories-accordion-es5.min.js",
+      "name": "com_categories.shared-categories-accordion",
+      "type": "preset",
       "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "nomodule": true,
-        "defer": true
-      },
-      "version": "9a36ebe8696e86eafff64a90f3c1017506e39275"
+        "com_categories.shared-categories-accordion#style",
+        "com_categories.shared-categories-accordion#script"
+      ]
     },
     {
       "name": "com_categories.shared-categories-accordion",
@@ -28,7 +23,20 @@
       "attributes": {
         "type": "module"
       },
-      "version": "18a0988e9dd5ee160969c6d907fd3dbda1393a5a"
+      "version": "f2b649ad259eca8ee54071cbe78c6f788d196540"
+    },
+    {
+      "name": "com_categories.shared-categories-accordion.es5",
+      "type": "script",
+      "uri": "com_categories/shared-categories-accordion-es5.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "c245aa3a31e900109edb9adf531e26911822a77c"
     },
     {
       "name": "com_categories.shared-categories-accordion",
